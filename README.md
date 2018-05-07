@@ -10,6 +10,7 @@ Sliced is designed to be modular and platform agnostic. On a higher level, this 
 
 The components of the scraper are as follows:
 
-- The **URL collector** collects all (potentially on-sale) item URLs from an online store (ideally from a sitemap or a page listing all sale items) and exports them via the output queue.
-- The **item scraper** takes in URLs from the input queue (text file list or from the URL collector), scrapes each item page to check if it is on sale, and passes sale items to the discount data store. 
+- The **pipeline** manages the flow of data of collected URLs so that scraping items is not compulsory after collecting URLs.
+- The **URL collector** collects all (potentially on-sale) item URLs from an online store (ideally from a sitemap or a page listing all sale items) and exports them via the pipeline.
+- The **item scraper** takes in a URL, scrapes its item page to check if it is on sale, and passes the sale item to the data store. 
 - The **data store** stores the sale items.

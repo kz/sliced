@@ -1,4 +1,4 @@
-package internal
+package scraper
 
 // Scraper processes a single item and adds it to the data store
 type Scraper interface {

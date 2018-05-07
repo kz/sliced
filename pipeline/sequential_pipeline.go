@@ -1,8 +1,9 @@
 package pipeline
 
 import (
-	"sliced/internal"
 	"sync"
+
+	"../scraper"
 )
 
 // sequentialPipeline collects all the URLs, then passes them to the scraper by
@@ -11,11 +12,11 @@ type sequentialPipeline struct {
 	urls           []string    // List of URLs to be processed by the scraper
 	urlsMutex      *sync.Mutex // Mutex to prevent races in the urls slice
 	maxConcurrency int         // Maximum number of scraper goroutines which can be created
-	scraper        internal.Scraper
+	scraper        scraper.Scraper
 }
 
 // Creates a new instance of sequentialPipeline with a scraper goroutine limit
-func NewSequentialPipeline(maxConcurrency int, scraper *internal.Scraper) sequentialPipeline {
+func NewSequentialPipeline(maxConcurrency int, scraper scraper.Scraper) sequentialPipeline {
 	return sequentialPipeline{
 		urls:           []string{},
 		urlsMutex:      &sync.Mutex{},
