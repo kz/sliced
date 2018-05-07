@@ -3,7 +3,7 @@ package pipeline
 import (
 	"sync"
 
-	"../scraper"
+	"github.com/kz/sliced/scraper"
 )
 
 // sequentialPipeline collects all the URLs, then passes them to the scraper by
